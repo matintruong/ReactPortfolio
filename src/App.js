@@ -4,93 +4,77 @@ import {
   Route,
   Link
 } from 'react-router-dom';
-import logo from './logo.svg';
+import React, {useState} from 'react';
+
+import Home from './pages/Home.js';
+import Projects from './pages/Projects.js';
+import Contact from './pages/Contact.js';
+import About from './pages/About.js';
+
 import './App.css';
 
 export default function App() {
+  const [showMenu, setShowMenu] = useState(false)
+
+  let navlink = "navlinks";
+
+  if(showMenu){
+    navlink += "show";
+  }
+
   return (
     <Router>
       <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/about">About</Link>
-            </li>
-            <li>
-              <Link to="/users">Users</Link>
-            </li>
-          </ul>
-        </nav>
+        <header className="navbar">
+          {/* Logo */}
+          <div className="navbar-container">
+            <div className="logo">
+              <h3>Matin Tyson</h3>
+            </div>
+            <i onClick={() => setShowMenu(!showMenu)} className="material-icons hamburger-menu">menu</i>
+          </div>
+          {/* Navlink */}
+          <nav className={navlink}>
+            <ul>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/projects">Projects</Link>
+              </li>
+              <li>
+                <Link to="/about">About</Link>
+              </li>
+              <li>
+                <Link to="/contact">Contact</Link>
+              </li>
+            </ul>
+          </nav>
+        </header>
 
+        <main>
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
-        <Switch>
-          <Route path="/about">
-            {/* <About /> */}
-            <div className="App">
-              <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo" />
-                <p> *** About *** Edit <code>src/App.js</code> and save to reload.</p>
-                <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">Learn React</a>
-              </header>
-            </div>
-          </Route>
-          <Route path="/users">
-            {/* <Users /> */}
-            <div className="App">
-              <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo" />
-                <p> *** User *** Edit <code>src/App.js</code> and save to reload.</p>
-                <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">Learn React</a>
-              </header>
-            </div>
-          </Route>
-          <Route path="/">
-            {/* <Home /> */}
-            <div className="App">
-              <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo" />
-                <p> *** Home *** Edit <code>src/App.js</code> and save to reload.</p>
-                <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">Learn React</a>
-              </header>
-            </div>
-          </Route>
-        </Switch>
+          <Switch>
+            <Route path="/projects">
+              <Projects />
+            </Route>
+            <Route path="/about">
+              <About />
+            </Route>
+            <Route path="/contact">
+              <Contact />
+            </Route>
+            <Route path="/">
+              <Home />
+            </Route>
+          </Switch>
+        </main>
+
+        <footer>
+          &copy; 2021 Matin Tyson
+        </footer>
       </div>
     </Router>
   );
 }
-
-function Home() {
-  return <h2>Home</h2>;
-}
-
-function About() {
-  return <h2>About</h2>;
-}
-
-function Users() {
-  return <h2>Users</h2>;
-}
-
-
-// import React from 'react';
-// import logo from './logo.svg';
-// import './App.css';
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p> Edit <code>src/App.js</code> and save to reload.</p>
-//         <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer"> Learn React</a>
-//       </header>
-//     </div>
-//   );
-// }
-
-// export default App;
