@@ -1,13 +1,11 @@
-import logo from '../images/logo.svg';
 import '../App.css';
 
 export default function About() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p> *** About Matin *** Edit <code>src/App.js</code> and save to reload.</p>
-        <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">Learn React</a>
+      <header className="App-about">
+        <h3>About Me</h3>
+        <p>My name is Matin, and I am a wanderer who loves to travel and experience new places and cultures, A lifelong student who is passionate about branding, making CSS Art, UX/UI, web design and development. </p>
       </header>
     </div>
   );

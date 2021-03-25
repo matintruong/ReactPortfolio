@@ -2,7 +2,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  NavLink
 } from 'react-router-dom';
 import React, {useState} from 'react';
 
@@ -29,7 +29,7 @@ export default function App() {
           {/* Logo */}
           <div className="navbar-container">
             <div className="logo">
-              <h3>Matin Tyson</h3>
+              <h3>MATIN</h3>
             </div>
             <i onClick={() => setShowMenu(!showMenu)} className="material-icons hamburger-menu">menu</i>
           </div>
@@ -37,16 +37,16 @@ export default function App() {
           <nav className={navlink}>
             <ul>
               <li>
-                <Link to="/">Home</Link>
+                <NavLink exact activeClassName="active" to="/">Home</NavLink>
               </li>
               <li>
-                <Link to="/projects">Projects</Link>
+                <NavLink exact activeClassName="active" to="/projects">Projects</NavLink>
               </li>
               <li>
-                <Link to="/about">About</Link>
+                <NavLink exact activeClassName="active" to="/about">About</NavLink>
               </li>
               <li>
-                <Link to="/contact">Contact</Link>
+                <NavLink exact activeClassName="active" to="/contact">Contact</NavLink>
               </li>
             </ul>
           </nav>
